@@ -1,16 +1,6 @@
-<?php 
+ <?php 
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-/* Declarating the routes */
-$routes = [
-    '/laracastsWeb/' => 'controllers/index.php',
-    '/laracastsWeb/about' => 'controllers/about.php',
-    '/laracastsWeb/notes' => 'controllers/notes.php',
-    '/laracastsWeb/note' => 'controllers/note.php',
-    '/laracastsWeb/contact' => 'controllers/contact.php',
-    '/laracastsWeb/ourMission' => 'controllers/ourMission.php'
-];
+$routes = require 'routes.php';
 
 /* Function to handle routing (uri --> one of the routes)*/
 function routeToController($uri, $routes) {
@@ -30,5 +20,8 @@ function abort($code = 404) {
 
     die();
 }
+
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
 
 routeToController($uri, $routes);

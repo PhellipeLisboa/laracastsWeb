@@ -6,16 +6,13 @@ $config = require 'config.php';
 $db = new Database($config['database']);
 
 $heading = "Note";  
+$currentUserId = 3;
 
 $note = $db->query('SELECT * FROM notes WHERE id = :id', [
     ':id' => $_GET['id']
-])->fetch();
+])->findOrFail();
 
-if (!$note) {
-    abort();
-}
-
-$currentUserId = 3;
+authorize($note['user_id'] === $currentUserId);
 
 /* Response::FORBIDDEN ---> From Response.php: 403 - access denied */
 if ($note['user_id'] !== $currentUserId) {
