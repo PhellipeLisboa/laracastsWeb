@@ -2,11 +2,14 @@
 
 /* Declarating the routes */
 return [
-        '/laracastsWeb/' => 'controllers/index.php',
-        '/laracastsWeb/about' => 'controllers/about.php',
-        '/laracastsWeb/notes' => 'controllers/notes.php',
-        '/laracastsWeb/note' => 'controllers/note.php',
-        '/laracastsWeb/notes/create' => 'controllers/note-create.php',
-        '/laracastsWeb/contact' => 'controllers/contact.php',
-        '/laracastsWeb/ourMission' => 'controllers/ourMission.php'
+        '/' => '../controllers/index.php',
+        '/about' => '../controllers/about.php',
+        '/notes' => '../controllers/notes/index.php',
+        '/note' => '../controllers/notes/show.php',
+        '/notes/create' => '../controllers/notes/create.php',
+        '/contact' => '../controllers/contact.php',
+        '/ourMission' => '../controllers/ourMission.php'
 ];
+
+/* laracastsWeb/ */
+        
